@@ -1,33 +1,46 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    rust-overlay.url = "github:oxalica/rust-overlay";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-parts, rust-overlay, ... }:
+  outputs = inputs@{ nixpkgs, flake-parts, ... }:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = nixpkgs.lib.systems.flakeExposed;
-      overlays = [ (import rust-overlay) ];
       perSystem = {
-        pkgs,
-        config,
         lib,
+        pkgs,
+        system,
+        config,
         ...
       }: 
-      let 
-      # Required Frameworks needed for macOS
-      inherit (pkgs.darwin.apple_sdk.frameworks);
-      rustToolchain = pkgs.rust-bin.stable.latest.default.override {
-        extensions = ["rustfmt" "cargo" "clippy" "rustc"]; # Programs
-        targets = [""]; # Targets
-      };
-      in
       {
-        devShells.default = pkgs.mkShell
+        _module.args.pkgs = import nixpkgs {
+          inherit system;
+          overlays = [
+            (import inputs.rust-overlay.overlays.default)
+          ];
+        };
+
+        devShells.default = with pkgs; let 
+        inherit (pkgs.darwin.apple_sdk.frameworks); # Required Frameworks needed for macOS
+
+        # Rust Toolchain
+        toolchain = pkgs.rust-bin.stable.latest.default.override {
+          extensions = ["rust-src"];
+          targets = ["x86_64-unknown-linux-gnu"];
+        };
+
+        # toolchain = rust-bin.fromRustupToolchainFile ./toolchain.toml; # Alternatively
+        in mkShell
         {
           nativeBuildInputs = with pkgs; [
             pkg-config
+            toolchain
           ] ++ [
             rustToolchain
           ] ++ lib.optionals stdenv.isLinux [
