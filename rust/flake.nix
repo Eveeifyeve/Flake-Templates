@@ -22,10 +22,6 @@
             cargo
             clippy
           ];
-
-          shellHook = ''
-          alias py=python
-          '';
         };
       };
     };
