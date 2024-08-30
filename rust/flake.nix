@@ -22,7 +22,7 @@
         _module.args.pkgs = import nixpkgs {
           inherit system;
           overlays = [
-            (import inputs.rust-overlay.overlays.default)
+            (import inputs.rust-overlay)
           ];
         };
 
@@ -41,8 +41,6 @@
           nativeBuildInputs = with pkgs; [
             pkg-config
             toolchain
-          ] ++ [
-            rustToolchain
           ] ++ lib.optionals stdenv.isLinux [
             openssl
             # Additional Dependencies here for Linux.
