@@ -27,7 +27,7 @@
         };
 
         devShells.default = with pkgs; let 
-        inherit (pkgs.darwin.apple_sdk.frameworks); # Required Frameworks needed for macOS
+        inherit (pkgs.darwin.apple_sdk.frameworks) Appkit CoreServices Security WebKit; # Required Frameworks needed for macOS
 
         # Rust Toolchain
         toolchain = pkgs.rust-bin.stable.latest.default.override {
@@ -54,13 +54,18 @@
         in mkShell
         {
           nativeBuildInputs = with pkgs; [
-            pkg-config
+            openssl
             toolchain
           ] ++ lib.optionals stdenv.isLinux [
-            openssl
+            libsoup
+            webkitgtk
+            glib-networking
             # Additional Dependencies here for Linux.
           ] ++ lib.optionals stdenv.isDarwin [
-            # Frameworks here
+            Appkit
+            CoreServices
+            Security
+            WebKit
           ];
         };
       };
