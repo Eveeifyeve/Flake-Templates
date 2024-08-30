@@ -2,7 +2,7 @@
 
 buildNpmPackage rec {
   pname = "name";
-  version = "1.1.0";
+  version = "0.1.0";
 
   src = fetchFromGitHub {
     owner = "";

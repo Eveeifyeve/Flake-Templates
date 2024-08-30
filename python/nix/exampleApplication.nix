@@ -5,7 +5,7 @@
 
 python3Packages.buildPythonApplication rec {
   pname = "name";
-  version = "1.0.0";
+  version = "0.1.0";
   pyproject = true;
 
   src = fetchPypi {
