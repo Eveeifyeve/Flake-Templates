@@ -1,6 +1,12 @@
-# flake-templates
+# Flake-Templates
 All of my flake templates made available to use.
 
+
+# Features 
+- Flake templates are available in github. 
+- Includes templates for favourite languages and frameworks.
+- Flake templates are written in nix and are easy to understand.
+- Flake templates are easy to use.
 
 # To get started
 
@@ -18,7 +24,7 @@ Add the following to your flake.nix
 {
     inputs = {
         eveeifyeve-flake-templates = {
-            url = "github:eveeifyeve/flake-templates";
+            url = "github:eveeifyeve/Flake-Templates";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
