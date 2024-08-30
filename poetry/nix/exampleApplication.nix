@@ -4,13 +4,13 @@
 }:
 
 python3Packages.buildPythonApplication rec {
-  pname = "luigi";
-  version = "2.7.9";
+  pname = "name";
+  version = "1.0.0";
   pyproject = true;
 
   src = fetchPypi {
     inherit pname version;
-    hash  = "sha256-Pe229rT0aHwA98s+nTHQMEFKZPo/yw6sot8MivFDvAw=";
+    hash = lib.fakeHash;
   };
 
   build-system = with python3Packages; [
@@ -18,11 +18,13 @@ python3Packages.buildPythonApplication rec {
   ];
 
   dependencies = with python3Packages; [
-    tornado
-    python-daemon
+    # Deps 
   ];
 
-  meta = {
-    # ...
+  meta = with lib; {
+    description = "";
+    homepage = "url";
+    license = licenses.unlicense;
+    maintainers = [];
   };
 }
