@@ -14,7 +14,7 @@ All of my flake templates made available to use.
 Get started by using the cli to install a template from github.
 Replace `<template-name>` with the name of the template you want to install.
 ```bash
-nix flake init -t github:eveeifyeve/flake-templates#<template-name>
+nix flake init -t github:eveeifyeve/Flake-Templates#<template-name>
 ```
 
 # Add it to your config using flake. 
