@@ -37,6 +37,10 @@
           description = "Rust template with rust-overlay";
         };
       };
+      zig = {
+        path = ./zig;
+        description = "Zig template";
+      };
     };
   };
 }
