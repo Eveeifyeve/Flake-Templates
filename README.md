@@ -42,3 +42,8 @@ Add the following to your flake.nix
     }
 }
 ```
+
+Then use 
+```sh
+nix flake init ./path/to/config/flake.nix -t #<template-name>
+```
