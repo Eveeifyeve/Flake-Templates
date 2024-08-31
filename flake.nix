@@ -9,6 +9,8 @@
   {
     templates = {
       python = {
+        path = self.templates.python.default.path;
+        description = self.templates.python.default.description;
         default = {
           path = ./python/default;
           description = "Python template";
