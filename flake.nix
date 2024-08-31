@@ -9,13 +9,16 @@
   {
     templates = {
       python = {
-        path = ./python;
-        description = "Python template";
+        default = {
+          path = ./python/default;
+          description = "Python template";
+        };
+        poetry = {
+          path = ./python/poetry;
+          description = "Python template with poetry";
+        };
       };
-      poetry = {
-        path = ./poetry;
-        description = "Python template with poetry";
-      };
+      poetry = builtins.warn "poetry has been renamed to python.poetry" self.templates.python.poetry;
       rust = {
         fenix = {
           path = ./rust/fenix;

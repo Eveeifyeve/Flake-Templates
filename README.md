@@ -10,9 +10,16 @@ All of my flake templates made available to use.
 
 # To get started
 
+# Template Names
+
+- Fenix: `rust.fenix`
+- Rust Overlay: `rust.rust-overlay`
+- Poetry: `python.poetry`
+- Python: `python` or `python.default`
+
 # Install template using cli
 Get started by using the cli to install a template from github.
-Replace `<template-name>` with the name of the template you want to install.
+Replace `<template-name>` with the [name of the template](#template-names) you want to install.
 ```bash
 nix flake init -t github:eveeifyeve/Flake-Templates#<template-name>
 ```
