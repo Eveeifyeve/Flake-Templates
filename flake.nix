@@ -22,6 +22,12 @@
       };
       poetry = builtins.warn "poetry has been renamed to python.poetry" self.templates.python.poetry;
       rust = {
+        path = self.templates.rust.default.path;
+        description = self.templates.rust.default.description;
+        default = {
+          path = ./rust/default;
+          description = "Rust template";
+        };
         fenix = {
           path = ./rust/fenix;
           description = "Rust template with fenix";
