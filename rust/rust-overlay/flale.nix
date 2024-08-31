@@ -39,7 +39,6 @@
         in mkShell
         {
           nativeBuildInputs = with pkgs; [
-            pkg-config
             toolchain
           ] ++ lib.optionals stdenv.isLinux [
             openssl

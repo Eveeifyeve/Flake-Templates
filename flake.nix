@@ -16,6 +16,16 @@
         path = ./poetry;
         description = "Python template with poetry";
       };
+      rust = {
+        fenix = {
+          path = ./rust/fenix;
+          description = "Rust template with fenix";
+        };
+        rust-overlay = {
+          path = ./rust/rust-overlay;
+          description = "Rust template with rust-overlay";
+        };
+      };
     };
   };
 }
