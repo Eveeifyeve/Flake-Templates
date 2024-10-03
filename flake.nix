@@ -8,6 +8,10 @@
   outputs = { self, nixpkgs }:
   {
     templates = {
+      node = {
+        path = ./node;
+        description = "Node template";
+      };
       python = {
         path = self.templates.python.default.path;
         description = self.templates.python.default.description;
