@@ -27,15 +27,12 @@
         };
 
         devShells.default = with pkgs; let 
-        inherit (pkgs.darwin.apple_sdk.frameworks) Appkit CoreServices Security WebKit; # Required Frameworks needed for macOS
-
         # Rust Toolchain
         toolchain = pkgs.rust-bin.stable.latest.default.override {
           extensions = ["rust-src"];
           targets = [
             "aarch64-apple-darwin"
             "x86_64-apple-darwin"
-
 
             # If building for iOS, add the following targets:
             # "aarch64-apple-ios"  
@@ -55,17 +52,13 @@
         {
           nativeBuildInputs = with pkgs; [
             openssl
+						pkgs-config
             toolchain
           ] ++ lib.optionals stdenv.isLinux [
-            libsoup
-            webkitgtk
+            webkitgtk_4_1
             glib-networking
-            # Additional Dependencies here for Linux.
           ] ++ lib.optionals stdenv.isDarwin [
-            Appkit
-            CoreServices
-            Security
-            WebKit
+            darwin.apple_sdk.frameworks.WebKit
           ];
         };
       };
