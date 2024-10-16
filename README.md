@@ -12,10 +12,11 @@ All of my flake templates made available to use.
 
 # Template Names
 
-- Fenix: `rust.fenix`
+- Fenix (Rust): `rust.fenix`
 - Rust Overlay: `rust.rust-overlay`
 - Poetry: `python.poetry`
 - Python: `python` or `python.default`
+- Zig: `zig`
 
 # Install template using cli
 Get started by using the cli to install a template from github.
