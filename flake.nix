@@ -1,49 +1,11 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
+		eveeifyeve-dotfiles.url = "github:eveeifyeve/dotfiles/flake-parts";
   };
 
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, eveeifyeve-dotfiles }:
   {
-    templates = {
-      node = {
-        path = ./node;
-        description = "Node template";
-      };
-      python = {
-        path = self.templates.python.default.path;
-        description = self.templates.python.default.description;
-        default = {
-          path = ./python/default;
-          description = "Python template";
-        };
-        poetry = {
-          path = ./python/poetry;
-          description = "Python template with poetry";
-        };
-      };
-      rust = {
-        path = self.templates.rust.default.path;
-        description = self.templates.rust.default.description;
-        default = {
-          path = ./rust/default;
-          description = "Rust template";
-        };
-        fenix = {
-          path = ./rust/fenix;
-          description = "Rust template with fenix";
-        };
-        rust-overlay = {
-          path = ./rust/rust-overlay;
-          description = "Rust template with rust-overlay";
-        };
-      };
-      zig = {
-        path = ./zig;
-        description = "Zig template";
-      };
-    };
+    templates = builtins.warn "templates are deprecated on eveeifyeve/flake-templates please use eveeifyeve/dotfiles: https://github.com/eveeifyeve/dotfiles" eveeifyeve-dotfiles.templates;
   };
 }

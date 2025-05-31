@@ -1,3 +1,7 @@
+> [!WARNING]
+> This is full deprecated please use [eveeifyeve/dotfiles](https://github.com/eveeifyeve/dotfiles) instead it has fully migrated templates and has more templates using the flake partition system.
+
+
 # Flake-Templates
 All of my flake templates made available to use.
 
