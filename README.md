@@ -1,3 +1,7 @@
+> [!WARNING]
+> This is full deprecated please use [eveeifyeve/dotfiles](https://github.com/eveeifyeve/dotfiles) instead it has fully migrated templates and has more templates using the flake partition system.
+
+
 # Flake-Templates
 All of my flake templates made available to use.
 
@@ -12,10 +16,8 @@ All of my flake templates made available to use.
 
 # Template Names
 
-- Fenix (Rust): `rust.fenix`
-- Rust Overlay: `rust.rust-overlay`
-- Poetry: `python.poetry`
-- Python: `python` or `python.default`
+- Fenix (Rust): `rust`
+- Python: `python`
 - Zig: `zig`
 
 # Install template using cli
