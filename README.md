@@ -1,5 +1,5 @@
 > [!WARNING]
-> This is full deprecated please use [eveeifyeve/dotfiles](https://github.com/eveeifyeve/dotfiles) instead it has fully migrated templates and has more templates using the flake partition system.
+> This is full deprecated please use [eveeifyeve/dotfiles](https://github.com/eveeifyeve/dotfiles) instead it has fully migrated templates and has more templates.
 
 
 # Flake-Templates
